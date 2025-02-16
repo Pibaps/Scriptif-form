@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scriptif-Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    <div class="container">
+        <i class="fas fa-pencil-alt icon"></i>
+        <h1>Proposer un projet</h1>
+        <form>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    <span>Informations personnelles</span>
+                </div>
+                <div class="form-group">
+                    <label for="discord">Votre pseudo Discord</label>
+                    <input type="text" id="discord" name="discord" required>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-book"></i>
+                    <span>Informations sur le projet</span>
+                </div>
+                <div class="form-group">
+                    <label for="project-title">Titre temporaire de votre projet</label>
+                    <input type="text" id="project-title" name="project-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-pitch">Pitch de votre projet</label>
+                    <textarea id="project-pitch" name="project-pitch" required placeholder="Décrivez brièvement votre projet..."></textarea>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-globe"></i>
+                    <span>Type de projet</span>
+                </div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="standalone" name="status" required>
+                        <label for="standalone">Un projet Standalone</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="newuniverse" name="status" required>
+                        <label for="newuniverse">Inscrit dans un nouvel univers</label>
+                    </div>
+                </div>
+                
+                <!-- Section conditionnelle pour Standalone -->
+                <div id="standalone-followup" class="nested" style="display: none;">
+                    <div class="form-group">
+                        <label for="standalone-details">Est-ce que ton projet Standalone pourrait mener à des suites/spin-off dans le futur ? Développez</label>
+                        <textarea id="standalone-details" name="standalone-details" required placeholder="Expliquez vos idées de suites potentielles..."></textarea>
+                    </div>
+                </div>
+    
+                <!-- Section conditionnelle pour Nouvel Univers -->
+                <div id="universe-details" class="nested" style="display: none;">
+                    <div class="form-group">
+                        <label>Parlez-nous de l'idée de l'univers en globalité</label>
+                        <textarea name="universe-global" required placeholder="À savoir que pour l'instant, seul le premier projet serait développé..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Nature du projet</span>
+                </div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="adapte" name="source" required>
+                        <label for="adapte">Un projet adapté (il adapte une oeuvre déjà existante)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="spinoff" name="source" required>
+                        <label for="spinoff">Un projet établi dans un univers existant (Spin-off/suite)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="original" name="source" required>
+                        <label for="original">Un projet original (crée de toutes pièces)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-users"></i>
+                    <span>Rôle dans le projet</span>
+                </div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="referent" name="role" required>
+                        <label for="referent">Je veux être référent</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="membre" name="role" required>
+                        <label for="membre">Je veux être membre mais pas référent</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="aucun" name="role" required>
+                        <label for="aucun">Je veux être ni membre ni référent</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-film"></i>
+                    <span>Format du projet</span>
+                </div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="film" name="type" required>
+                        <label for="film">Film</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="serie" name="type" required>
+                        <label for="serie">Série</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="autre" name="type" required>
+                        <label for="autre">Autre</label>
+                    </div>
+                </div>
+                <!-- Section conditionnelle pour Autre -->
+                <div id="autre-content" class="nested" style="display: none;">
+                    <div class="form-group">
+                        <label for="autre-text">Précisez le format de votre projet</label>
+                        <textarea id="autre-text" 
+                                  name="autre-text" 
+                                  class="collaborators-input" 
+                                  placeholder="Décrivez le format de votre projet..."
+                                  required></textarea>
+                    </div>
+                </div>
+                <!-- Section conditionnelle pour la taille de l'équipe -->
+                <div id="team-size" class="nested" style="display: none;">
+                    <div class="form-group">
+                        <label for="team-select">Quel est la limite maximum de personnes dans votre équipe (en plus de vous) ?</label>
+                        <select id="team-select" name="team-size" class="custom-select" required>
+                            <option value="">Choisir...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-handshake"></i>
+                    <span>Collaborateurs potentiels</span>
+                </div>
+                <div class="form-group">
+                    <label for="collaborators">Avez-vous des pseudos de personnes avec qui vous voudriez travailler ?</label>
+                    <textarea id="collaborators" name="collaborators" 
+                              placeholder="Entrez les pseudos Discord des personnes avec qui vous souhaitez collaborer (un par ligne)..."
+                              class="collaborators-input"></textarea>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-star"></i>
+                    <span>Compétences</span>
+                </div>
+                <div class="form-group">
+                    <label for="skills">Avez-vous des compétences pouvant être utiles au projet ?</label>
+                    <textarea id="skills" name="skills" 
+                              placeholder="Décrivez vos compétences pertinentes pour le projet (ex: écriture, correction, etc.)..."
+                              class="collaborators-input"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-comment"></i>
+                    <span>Informations supplémentaires</span>
+                </div>
+                <div class="form-group">
+                    <label for="additional-details">Avez-vous d'autres détails à rajouter ?</label>
+                    <textarea id="additional-details" 
+                              name="additional-details" 
+                              placeholder="Ajoutez ici toute information supplémentaire que vous jugez pertinente..."
+                              class="collaborators-input"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i>
+                Envoyer
+            </button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+        
+    
+</body>
+</html>
