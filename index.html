@@ -19,7 +19,7 @@
     <div class="container">
         <i class="fas fa-pencil-alt icon"></i>
         <h1>Proposer un projet</h1>
-        <form>
+        <form id="customForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScchdm6nZvCD59yRZOXmJBvREEZrFsezmmOjL_hE3izvQL7GA/formResponse" method="POST" target="hidden_iframe">
             <div class="form-section">
                 <div class="section-title">
                     <i class="fas fa-user"></i>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="discord">Votre pseudo Discord</label>
-                    <input type="text" id="discord" name="discord" required>
+                    <input type="text" id="discord" name="entry.1873931848" required>
                 </div>
             </div>
             <div class="form-section">
@@ -37,11 +37,11 @@
                 </div>
                 <div class="form-group">
                     <label for="project-title">Titre temporaire de votre projet</label>
-                    <input type="text" id="project-title" name="project-title" required>
+                    <input type="text" id="project-title" name="entry.1699217509" required>
                 </div>
                 <div class="form-group">
                     <label for="project-pitch">Pitch de votre projet</label>
-                    <textarea id="project-pitch" name="project-pitch" required placeholder="Décrivez brièvement votre projet..."></textarea>
+                    <textarea id="project-pitch" name="entry.1028941777" required placeholder="Décrivez brièvement votre projet..."></textarea>
                 </div>
             </div>
             <div class="form-section">
@@ -51,11 +51,11 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="standalone" name="status" required>
+                        <input type="radio" id="standalone" name="entry.1997500657" value="Un projet Standalone" required>
                         <label for="standalone">Un projet Standalone</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="newuniverse" name="status" required>
+                        <input type="radio" id="newuniverse" name="entry.1997500657" value="Inscrit dans un nouvel univers" required>
                         <label for="newuniverse">Inscrit dans un nouvel univers</label>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div id="standalone-followup" class="nested" style="display: none;">
                     <div class="form-group">
                         <label for="standalone-details">Est-ce que ton projet Standalone pourrait mener à des suites/spin-off dans le futur ? Développez</label>
-                        <textarea id="standalone-details" name="standalone-details" required placeholder="Expliquez vos idées de suites potentielles..."></textarea>
+                        <textarea id="standalone-details" name="entry.477541588" placeholder="Expliquez vos idées de suites potentielles..."></textarea>
                     </div>
                 </div>
     
@@ -72,7 +72,7 @@
                 <div id="universe-details" class="nested" style="display: none;">
                     <div class="form-group">
                         <label>Parlez-nous de l'idée de l'univers en globalité</label>
-                        <textarea name="universe-global" required placeholder="À savoir que pour l'instant, seul le premier projet serait développé..."></textarea>
+                        <textarea name="entry.527286151" placeholder="À savoir que pour l'instant, seul le premier projet serait développé..."></textarea>
                     </div>
                 </div>
             </div>
@@ -83,15 +83,15 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="adapte" name="source" required>
+                        <input type="radio" id="adapte" name="entry.1401803324" value="Un projet adapté (il adapte une oeuvre déjà existante)" required>
                         <label for="adapte">Un projet adapté (il adapte une oeuvre déjà existante)</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="spinoff" name="source" required>
+                        <input type="radio" id="spinoff" name="entry.1401803324" value="Un projet établi dans un univers existant (Spin-off/suite)" required>
                         <label for="spinoff">Un projet établi dans un univers existant (Spin-off/suite)</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="original" name="source" required>
+                        <input type="radio" id="original" name="entry.1401803324" value="Un projet original (crée de toutes pièces)" required>
                         <label for="original">Un projet original (crée de toutes pièces)</label>
                     </div>
                 </div>
@@ -103,15 +103,15 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="referent" name="role" required>
+                        <input type="radio" id="referent" name="entry.1512927452" value="Je veux être référent" required>
                         <label for="referent">Je veux être référent</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="membre" name="role" required>
+                        <input type="radio" id="membre" name="entry.1512927452" value="Je veux être membre mais pas référent" required>
                         <label for="membre">Je veux être membre mais pas référent</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="aucun" name="role" required>
+                        <input type="radio" id="aucun" name="entry.1512927452" value="Je veux être ni membre ni référent" required>
                         <label for="aucun">Je veux être ni membre ni référent</label>
                     </div>
                 </div>
@@ -123,34 +123,30 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="film" name="type" required>
+                        <input type="radio" id="film" name="entry.74717093" value="Film" required>
                         <label for="film">Film</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="serie" name="type" required>
+                        <input type="radio" id="serie" name="entry.74717093" value="Série" required>
                         <label for="serie">Série</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="autre" name="type" required>
+                        <input type="radio" id="autre" name="entry.74717093" value="Autre" required>
                         <label for="autre">Autre</label>
                     </div>
                 </div>
                 <!-- Section conditionnelle pour Autre -->
                 <div id="autre-content" class="nested" style="display: none;">
                     <div class="form-group">
-                        <label for="autre-text">Précisez le format de votre projet</label>
-                        <textarea id="autre-text" 
-                                  name="autre-text" 
-                                  class="collaborators-input" 
-                                  placeholder="Décrivez le format de votre projet..."
-                                  required></textarea>
+                        <label for="autre-text">Quel est l'autre format que vous désirez ? Développez (on en rediscutera ensemble)</label>
+                        <textarea id="autre-text" name="entry.196512415" class="collaborators-input" placeholder="Décrivez le format de votre projet..."></textarea>
                     </div>
                 </div>
                 <!-- Section conditionnelle pour la taille de l'équipe -->
                 <div id="team-size" class="nested" style="display: none;">
                     <div class="form-group">
                         <label for="team-select">Quel est la limite maximum de personnes dans votre équipe (en plus de vous) ?</label>
-                        <select id="team-select" name="team-size" class="custom-select" required>
+                        <select id="team-select" name="entry.955084983" class="custom-select">
                             <option value="">Choisir...</option>
                         </select>
                     </div>
@@ -164,7 +160,7 @@
                 </div>
                 <div class="form-group">
                     <label for="collaborators">Avez-vous des pseudos de personnes avec qui vous voudriez travailler ?</label>
-                    <textarea id="collaborators" name="collaborators" 
+                    <textarea id="collaborators" name="entry.770094121" 
                               placeholder="Entrez les pseudos Discord des personnes avec qui vous souhaitez collaborer (un par ligne)..."
                               class="collaborators-input"></textarea>
                 </div>
@@ -176,7 +172,7 @@
                 </div>
                 <div class="form-group">
                     <label for="skills">Avez-vous des compétences pouvant être utiles au projet ?</label>
-                    <textarea id="skills" name="skills" 
+                    <textarea id="skills" name="entry.110912203" 
                               placeholder="Décrivez vos compétences pertinentes pour le projet (ex: écriture, correction, etc.)..."
                               class="collaborators-input"></textarea>
                 </div>
@@ -190,7 +186,7 @@
                 <div class="form-group">
                     <label for="additional-details">Avez-vous d'autres détails à rajouter ?</label>
                     <textarea id="additional-details" 
-                              name="additional-details" 
+                              name="entry.1895815226" 
                               placeholder="Ajoutez ici toute information supplémentaire que vous jugez pertinente..."
                               class="collaborators-input"></textarea>
                 </div>
@@ -200,10 +196,21 @@
                 Envoyer
             </button>
         </form>
-    </div>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
 
+        <!-- Message de remerciement qui s'affichera après soumission -->
+        <div id="thankyouMessage" class="thankyou" style="display: none;">
+            Vos réponses ont été enregistrées !
+        </div>
+
+        <script>
+            // Vous pouvez écouter l'événement "load" de l'iframe pour afficher le message après soumission
+            document.getElementById("hidden_iframe").addEventListener("load", function() {
+                document.getElementById("customForm").style.display = "none";
+                document.getElementById("thankyouMessage").style.display = "block";
+            });
+        </script>
+    </div>
     <script src="scripts.js"></script>
-        
-    
 </body>
 </html>
