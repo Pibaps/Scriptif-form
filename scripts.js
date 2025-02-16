@@ -141,12 +141,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const allSections = document.querySelectorAll('.form-section');
     
         if (radio.id === 'membre') {
+            // Réaffiche d'abord toutes les sections
+            allSections.forEach(section => section.style.display = 'block');
+            
+            // Puis cache spécifiquement la section format
             formatSection.style.display = 'none';
             document.querySelectorAll('input[name="entry.74717093"]').forEach(input => {
                 input.checked = false;
                 input.required = false;
             });
             hideNestedInCategory('type');
+    
+            // Réinitialise les required pour les autres sections
+            allSections.forEach(section => {
+                if (section !== formatSection) {
+                    section.querySelectorAll('input[required]').forEach(input => {
+                        input.required = true;
+                    });
+                }
+            });
         } else if (radio.id === 'aucun') {
             allSections.forEach(section => {
                 const sectionTitle = section.querySelector('.section-title span')?.textContent;
@@ -155,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Informations sur le projet',
                     'Type de projet',
                     'Nature du projet',
-                    'Rôle dans le projet', // Ajout de cette section
+                    'Rôle dans le projet',
                     'Informations supplémentaires'
                 ].includes(sectionTitle);
     
