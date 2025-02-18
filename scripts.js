@@ -5,7 +5,6 @@ const activeElements = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme toggle logic
     const themeToggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
     const icon = themeToggle.querySelector('i');
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
-    // Utility functions for nested elements
     function hideNestedInCategory(category) {
         if (activeElements[category]) {
             const element = document.getElementById(activeElements[category]);
@@ -63,55 +61,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Radio handlers mapping
     const radioHandlers = {
         type: {
             film: () => {
-                // Cache la section "autre" et retire required
                 hideNestedInCategory('autre-content', 'type');
                 document.getElementById('autre-text').required = false;
                 
-                // Affiche et configure team-size et ajoute required
                 showNestedInCategory('team-size', 'type');
                 document.getElementById('team-select').required = true;
                 updateTeamSize(5);
             },
             serie: () => {
-                // Cache la section "autre" et retire required
                 hideNestedInCategory('autre-content', 'type');
                 document.getElementById('autre-text').required = false;
                 
-                // Affiche et configure team-size et ajoute required
                 showNestedInCategory('team-size', 'type');
                 document.getElementById('team-select').required = true;
                 updateTeamSize(10);
             },
             autre: () => {
-                // Cache team-size et retire required
                 hideNestedInCategory('team-size', 'type');
                 document.getElementById('team-select').required = false;
                 
-                // Affiche la section "autre" et ajoute required
                 showNestedInCategory('autre-content', 'type');
                 document.getElementById('autre-text').required = true;
             }
         },
         status: {
             standalone: () => {
-                // Cache universe-details et retire required
                 hideNestedInCategory('universe-details', 'status');
                 document.querySelector('textarea[name="entry.527286151"]').required = false;
                 
-                // Affiche standalone-followup et ajoute required
                 showNestedInCategory('standalone-followup', 'status');
                 document.getElementById('standalone-details').required = true;
             },
             newuniverse: () => {
-                // Cache standalone-followup et retire required
                 hideNestedInCategory('standalone-followup', 'status');
                 document.getElementById('standalone-details').required = false;
                 
-                // Affiche universe-details et ajoute required
                 showNestedInCategory('universe-details', 'status');
                 document.querySelector('textarea[name="entry.527286151"]').required = true;
             }
@@ -121,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Setup radio event listeners
     const radioGroups = {
         type: 'entry.74717093',
         status: 'entry.1997500657',
@@ -132,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.entries(radioGroups).forEach(([groupType, nameAttr]) => {
         document.querySelectorAll(`input[name="${nameAttr}"]`).forEach(radio => {
             radio.addEventListener('change', function() {
-                // Update radio styles
                 const radios = document.querySelectorAll(`input[name="${nameAttr}"]`);
                 radios.forEach(r => {
                     const option = r.closest('.radio-option');
@@ -141,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Handle specific group behaviors
                 if (groupType === 'type') {
                     const handler = radioHandlers.type[this.id];
                     if (handler) {
@@ -166,10 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const allSections = document.querySelectorAll('.form-section');
     
         if (radio.id === 'membre') {
-            // Réaffiche d'abord toutes les sections
             allSections.forEach(section => section.style.display = 'block');
             
-            // Puis cache spécifiquement la section format
             formatSection.style.display = 'none';
             document.querySelectorAll('input[name="entry.74717093"]').forEach(input => {
                 input.checked = false;
@@ -177,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             hideNestedInCategory('type');
     
-            // Réinitialise les required pour les autres sections
             allSections.forEach(section => {
                 if (section !== formatSection) {
                     section.querySelectorAll('input[required]').forEach(input => {
@@ -213,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize form sections visibility based on saved state
     const savedRole = document.querySelector('input[name="entry.1512927452"]:checked');
     if (savedRole) {
         handleRoleChange(savedRole);

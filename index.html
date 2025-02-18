@@ -56,11 +56,10 @@
                     </div>
                     <div class="radio-option">
                         <input type="radio" id="newuniverse" name="entry.1997500657" value="Inscrit dans un nouvel univers" required>
-                        <label for="newuniverse">Inscrit dans un nouvel univers</label>
+                        <label for="newuniverse">Inscrit dans un univers</label>
                     </div>
                 </div>
                 
-                <!-- Section conditionnelle pour Standalone -->
                 <div id="standalone-followup" class="nested" style="display: none;">
                     <div class="form-group">
                         <label for="standalone-details">Est-ce que ton projet Standalone pourrait mener à des suites/spin-off dans le futur ? Développez</label>
@@ -68,11 +67,10 @@
                     </div>
                 </div>
     
-                <!-- Section conditionnelle pour Nouvel Univers -->
                 <div id="universe-details" class="nested" style="display: none;">
                     <div class="form-group">
-                        <label>Parlez-nous de l'idée de l'univers en globalité</label>
-                        <textarea name="entry.527286151" placeholder="À savoir que pour l'instant, seul le premier projet serait développé..."></textarea>
+                        <label>Indiquez dans quel univers se déroule votre projet ou décrivez-le brièvement s'il s'agit d'un univers inédit</label>
+                        <textarea name="entry.527286151" placeholder="À savoir que pour l'instant, seul le premier projet serait développé pour un nouvel univers..."></textarea>
                     </div>
                 </div>
             </div>
@@ -135,14 +133,12 @@
                         <label for="autre">Autre</label>
                     </div>
                 </div>
-                <!-- Section conditionnelle pour Autre -->
                 <div id="autre-content" class="nested" style="display: none;">
                     <div class="form-group">
                         <label for="autre-text">Quel est l'autre format que vous désirez ? Développez (on en rediscutera ensemble)</label>
                         <textarea id="autre-text" name="entry.196512415" class="collaborators-input" placeholder="Décrivez le format de votre projet..."></textarea>
                     </div>
                 </div>
-                <!-- Section conditionnelle pour la taille de l'équipe -->
                 <div id="team-size" class="nested" style="display: none;">
                     <div class="form-group">
                         <label for="team-select">Quel est la limite maximum de personnes dans votre équipe (en plus de vous) ?</label>
@@ -198,13 +194,11 @@
         </form>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
 
-        <!-- Message de remerciement qui s'affichera après soumission -->
         <div id="thankyouMessage" class="thankyou" style="display: none;">
             Vos réponses ont été enregistrées !
         </div>
 
         <script>
-            // Vous pouvez écouter l'événement "load" de l'iframe pour afficher le message après soumission
             document.getElementById("hidden_iframe").addEventListener("load", function() {
                 document.getElementById("customForm").style.display = "none";
                 document.getElementById("thankyouMessage").style.display = "block";
