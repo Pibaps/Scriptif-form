@@ -67,29 +67,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const radioHandlers = {
         type: {
             film: () => {
-                // Cache la section "autre"
+                // Cache la section "autre" et retire required
                 hideNestedInCategory('autre-content', 'type');
-                // Affiche et configure team-size
+                document.getElementById('autre-text').required = false;
+                
+                // Affiche et configure team-size et ajoute required
                 showNestedInCategory('team-size', 'type');
+                document.getElementById('team-select').required = true;
                 updateTeamSize(5);
             },
             serie: () => {
-                // Cache la section "autre"
+                // Cache la section "autre" et retire required
                 hideNestedInCategory('autre-content', 'type');
-                // Affiche et configure team-size
+                document.getElementById('autre-text').required = false;
+                
+                // Affiche et configure team-size et ajoute required
                 showNestedInCategory('team-size', 'type');
+                document.getElementById('team-select').required = true;
                 updateTeamSize(10);
             },
             autre: () => {
-                // Cache team-size
+                // Cache team-size et retire required
                 hideNestedInCategory('team-size', 'type');
-                // Affiche la section "autre"
+                document.getElementById('team-select').required = false;
+                
+                // Affiche la section "autre" et ajoute required
                 showNestedInCategory('autre-content', 'type');
+                document.getElementById('autre-text').required = true;
             }
         },
         status: {
-            standalone: () => showNestedInCategory('standalone-followup', 'status'),
-            newuniverse: () => showNestedInCategory('universe-details', 'status')
+            standalone: () => {
+                // Cache universe-details et retire required
+                hideNestedInCategory('universe-details', 'status');
+                document.querySelector('textarea[name="entry.527286151"]').required = false;
+                
+                // Affiche standalone-followup et ajoute required
+                showNestedInCategory('standalone-followup', 'status');
+                document.getElementById('standalone-details').required = true;
+            },
+            newuniverse: () => {
+                // Cache standalone-followup et retire required
+                hideNestedInCategory('standalone-followup', 'status');
+                document.getElementById('standalone-details').required = false;
+                
+                // Affiche universe-details et ajoute required
+                showNestedInCategory('universe-details', 'status');
+                document.querySelector('textarea[name="entry.527286151"]').required = true;
+            }
         },
         source: {
             adapte: () => showNestedInCategory('adapte-followup', 'source')
